@@ -47,9 +47,27 @@ class ConsciousnessField:
         print(f"Consciousness Field State: {self.state}\n")
 
 # Simulation setup
-grid_size = 5
+grid_size = 10  # Increase the grid size
 grid = Grid(grid_size)
-field = ConsciousnessField()
+
+# Add roads and buildings to the grid
+grid.add_road(0, 0)
+grid.add_road(0, 1)
+grid.add_road(1, 0)
+grid.add_road(1, 1)
+grid.add_building(2, 2)
+grid.add_building(3, 3)
+
+# Initialize cars with start and end positions
+cars = [Car('A', (0, 0), (4, 4)), Car('B', (4, 0), (0, 4))]
+
+# Plan paths for each car
+for car in cars:
+    car.plan_path(grid)
+
+# Main simulation loop
+for _ in range(grid_size * 2):
+   ...
 
 # Initialize cars with start and end positions
 cars = [Car('A', (0, 0), (4, 4)), Car('B', (4, 0), (0, 4))]
